@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+
+  background-image: url('./assets/flat-mountains.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+}
