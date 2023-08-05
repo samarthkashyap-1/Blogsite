@@ -1,49 +1,49 @@
 import React from 'react'
-import logo from "../assets/flat-mountains.svg"
+import logo from "../assets/logo.png"
 
 function Navbar() {
     const User = "samarth"
-    window.addEventListener("scroll", function () {
-      const navbar = document.getElementById("navbar");
-      const logo = document.getElementById("logo");
-    //   const navidata = document.getElementById("navidata");
-      if (window.scrollY > 150) {
-        navbar.classList.remove("bg-transparent");
-        navbar.classList.add("bg-black", "shadow-md","text-white");
-        logo.classList.add("hidden");
-       
-      } else {
-        navbar.classList.add("bg-transparent");
-        navbar.classList.remove("bg-black", "shadow-md","text-white");
-        logo.classList.remove("hidden");
-      }
-    });
+   
   return (
     <div>
       <div
-        className="flex justify-between items-center px-5 h-20 transition duration-300 ease-in-out bg-opacity-80"
+        className="flex justify-evenly items-center h-20 bg-black text-white"
         id="navbar"
       >
-        <div id='navidata'>
-            <img src={logo} alt=""  id='logo'/>
-          <h1 className="text-4xl mix-blend-normal ">Blog</h1>
+        <div id="navidata" className="">
+          <h1 className='text-4xl'>Blogs</h1>
         </div>
-        <div>
-          <ul className="flex  text-lg gap-6">
-            <a href="">
-              <li>Home</li>
+        <div className=" h-full flex justify-center px-10 items-center">
+          <ul className="flex text-lg h-full items-center">
+            <a
+              href=""
+              className="hover:text-black p-3 hover:bg-[#FF7700] h-full flex items-center  transition-colors duration-300 ease-in-out"
+            >
+              <li className="">Home</li>
             </a>
-            <a href="">
+            <a
+              href=""
+              className="hover:text-black p-3 hover:bg-[#FF7700] h-full flex items-center  transition-colors duration-300 ease-in-out"
+            >
               <li>Blogs</li>
             </a>
-            <a href="">
+            <a
+              href=""
+              className="hover:text-black p-3 hover:bg-[#FF7700] h-full flex items-center  transition-colors duration-300 ease-in-out"
+            >
               <li>Create Blog</li>
             </a>
-            <a href="">
+            <a
+              href=""
+              className="hover:text-black p-3 hover:bg-[#FF7700] h-full flex items-center  transition-colors duration-300 ease-in-out"
+            >
               <li>{User}</li>
             </a>
-            <a href="">
-              <li>Logout</li>
+            <a
+              href=""
+              className="hover:text-black p-3 hover:bg-[#FF7700] h-full flex items-center  transition-colors duration-300 ease-in-out"
+            >
+              <li>Login</li>
             </a>
           </ul>
         </div>
