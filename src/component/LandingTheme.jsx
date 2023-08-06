@@ -1,13 +1,17 @@
 import React from 'react'
+import logo from "../assets/logo.png";
+import Spline from '@splinetool/react-spline';
 
-function LandingTheme() {
-  return (
-    
-      <div className="mt-32 flex justify-center">
-        <h1 className="text-8xl font-extrabold mt-10 text-white">Blogs</h1>
-      </div>
-    
-  );
+
+  
+  function LandingTheme() {
+    return (
+      <>
+        <div className="w-full">
+          
+        </div>
+      </>
+    );
 }
 
 export default LandingTheme

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../component/navbar'
+import Navbar from '../component/Navbar'
 import LandingTheme from '../component/LandingTheme';
 function Home() {
   return (
@@ -7,7 +7,7 @@ function Home() {
       <header className="fixed z-50 top-0 w-screen">
         <Navbar />
       </header>
-     <div className='flex justify-center'>
+     <div className='flex h-screen justify-center'>
 
       <LandingTheme/>
      </div>
