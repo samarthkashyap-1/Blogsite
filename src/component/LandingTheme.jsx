@@ -1,18 +1,20 @@
-import React from 'react'
+import React,{useRef}from 'react'
 import Lottie from "lottie-react";
 import logo from "../assets/ani.json";
+import { Link } from 'react-scroll';
+
 
 
 
 
   
   function LandingTheme() {
-    console.log(logo)
+  
     return (
       <>
-        <div className="relative w-screen h-[125vh] mt-4 ">
+        <div className="relative w-screen h-screen sm:h-[115vh] mt-4 sm:mt-0 ">
           <Lottie
-            className="sm:opacity-70 scale-90"
+            className="sm:opacity-70 scale-90 sm:scale-100"
             style={{ position: "absolute", width: "100%", height: "100%" }}
             animationData={logo}
             loop={true}
@@ -25,7 +27,6 @@ import logo from "../assets/ani.json";
               Grow with Blog
             </h1>
             <p className="sm:text-justify sm:w-56 mx-auto sm:text-base text-center font-medium sm:mt-7 mt-14 text-2xl">
-
               At Glog, we believe that every idea has the potential to grow into
               something amazing. Our platform is a nurturing ground for
               bloggers, thinkers, and storytellers to cultivate their passions
@@ -36,9 +37,11 @@ import logo from "../assets/ani.json";
             </p>
 
             <div className=" flex justify-center sm:flex-col sm:gap-4 sm:w-fit mx-auto font-bold gap-32 mt-20 sm:mt-10">
-              <button className="w-32 h-12  px-2 rounded-full border-2 text-white bg-[#B7D893] hover:text-black hover:border-black hover:bg-white  border-white">
-                Why Glog
-              </button>
+              <Link to="whyglog" smooth={true} duration={20}>
+                <button className="w-32 h-12  px-2 rounded-full border-2 text-white bg-[#B7D893] hover:text-black hover:border-black hover:bg-white  border-white">
+                  Why Glog
+                </button>
+              </Link>
               <button className="w-32 h-12 px-2 rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white">
                 Get Started
               </button>

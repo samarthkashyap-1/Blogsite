@@ -1,8 +1,5 @@
 import React from 'react'
-import logo from "../assets/logo.png"
 import { useState,useEffect,useRef } from 'react';
-
-
 
 
 function Navbar() {
@@ -10,7 +7,6 @@ function Navbar() {
       addEventListener("scroll",()=>{
         const navbar  = document.getElementById("navbar")
         if(window.scrollY >= 50){
-          console.log(window.scrollY)
          navbar.classList.add("shadow-md","backdrop-blur-lg");
         }
         if(window.scrollY <= 0){
@@ -79,7 +75,7 @@ function Navbar() {
             <ul
               className={`flex text-lg text-black h-full sm:top-0 sm:absolute sm:right-[0%] sm:backdrop-blur-sm sm:h-fit sm:w-[100%] items-center gap-2  sm:gap-6 sm:flex-col sm:bg-white sm:pb-2 box-border font-medium ${
                 isOpen ? "sm:flex" : "sm:hidden"
-              } transition-all duration-1000 ease-in-out`}
+              } transition-all duration-1000 ease-in-out sm:shadow`}
             >
               <a
                 onClick={closeMenu}

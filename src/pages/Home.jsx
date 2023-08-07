@@ -9,17 +9,14 @@ function Home() {
       <header className="fixed z-50 top-0 w-screen">
         <Navbar />
       </header>
-<Fade triggerOnce>
-
+      <Fade triggerOnce>
         <div className="flex justify-center">
           <LandingTheme />
         </div>
-</Fade>
-        <div className='flex justify-center'>
-          <WhyGlog/>
-        </div>
-        
-      
+      </Fade>
+      <div className="flex justify-center" id="whyglog" >
+        <WhyGlog />
+      </div>
     </div>
   );
 }
