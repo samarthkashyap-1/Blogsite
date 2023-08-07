@@ -10,7 +10,7 @@ function WhyGlog() {
   return (
     <>
 
-      <div className="flex flex-col gap-10 w-3/4 my-10  " id="whyglog">
+      <div className="flex flex-col gap-10 w-3/4 mb-10  " id="whyglog">
     <Fade triggerOnce delay={20}>
         <div className="mb-5">
           <h1 className="text-center text-6xl font-bold sm:text-4xl">Why Glog?</h1>
