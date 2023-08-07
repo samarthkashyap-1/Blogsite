@@ -9,12 +9,12 @@ function Navbar() {
 
       addEventListener("scroll",()=>{
         const navbar  = document.getElementById("navbar")
-        if(window.scrollY > 400){
+        if(window.scrollY >= 50){
           console.log(window.scrollY)
-         navbar.classList.add("bg-[#191919]");
+         navbar.classList.add("shadow-md","backdrop-blur-lg");
         }
-        if(window.scrollY <= 200){
-          navbar.classList.remove("bg-[#191919]");
+        if(window.scrollY <= 0){
+          navbar.classList.remove("shadow-md","backdrop-blur-lg");
         }
       })
     
@@ -47,20 +47,20 @@ function Navbar() {
     <div>
       <div
         ref={menuRef}
-        className="flex justify-between transition-colors duration-300 ease-in items-center h-20 bg-transparent"
+        className="flex z-50 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
         id="navbar"
       >
-        <div id="navidata" className=" w-32  ml-2">
-          <img src={logo} className="" alt="" />
+        <div id="navidata" className=" ml-2 sm:ml-5">
+          <h1 className='text-black text-5xl font-bold sm:text-4xl'>Glog</h1>
         </div>
-        <div className=" h-full flex justify-center px-10 items-center">
+        <div className=" h-full flex justify-center px-8 items-center">
           <div className="sm:flex hidden">
             <button
-              className="text-white focus:outline-none"
+              className="text-black focus:outline-none"
               onClick={toggleMenu}
             >
               <svg
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ function Navbar() {
           </div>
           <div className=" ">
             <ul
-              className={`flex text-lg h-full sm:top-0 sm:absolute sm:right-[0%] sm:backdrop-blur-sm sm:h-fit  sm:w-screen items-center gap-2  sm:gap-6 sm:flex-col font-medium  text-white ${
+              className={`flex text-lg text-black h-full sm:top-0 sm:absolute sm:right-[0%] sm:backdrop-blur-sm sm:h-fit sm:w-[100%] items-center gap-2  sm:gap-6 sm:flex-col sm:bg-white sm:pb-2 box-border font-medium ${
                 isOpen ? "sm:flex" : "sm:hidden"
               } transition-all duration-1000 ease-in-out`}
             >
@@ -110,7 +110,7 @@ function Navbar() {
             </a> */}
 
               <li className=" mx-auto">
-                <button className="hover:text-white p-2 bg-white text-black border-white hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out">
+                <button className="hover:text-black text-white p-2 bg-black  border-black hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out">
                   Login
                 </button>
               </li>
