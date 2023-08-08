@@ -22,7 +22,7 @@ function ContactUs() {
         e.target.email.value= ""
         e.target.message.value= ""
     }
-    console.log(contactdata)
+ 
     
 
   return (
