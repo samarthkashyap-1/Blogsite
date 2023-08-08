@@ -2,6 +2,8 @@ import React from 'react'
 import { useState,useEffect,useRef } from 'react';
 import { Link } from 'react-scroll';
 
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 function Navbar({signin,signout,user}) {
 
@@ -39,6 +41,7 @@ function Navbar({signin,signout,user}) {
              document.removeEventListener("mousedown", handleOutsideClick);
            };
          }, []);
+         
       
 
    
@@ -80,13 +83,6 @@ function Navbar({signin,signout,user}) {
                 isOpen ? "sm:flex" : "sm:hidden"
               } transition-all duration-1000 ease-in-out sm:shadow`}
             >
-              <a className="sm:mt-5 underline underline-offset-2  mx-auto flex items-center cursor-pointer  transition-colors duration-300 ease-in-out">
-                <li className=" mx-auto text-base ">
-                  <span className="text-lg">WELCOME! </span>
-                  {user?.name ?? "Guest"}
-                </li>
-              </a>
-
               <a
                 onClick={closeMenu}
                 href=""
@@ -113,15 +109,13 @@ function Navbar({signin,signout,user}) {
                 </>
               )}
               <Link
-                onClick={closeMenu} 
+                onClick={closeMenu}
                 to="contactus"
                 className="hover:underline underline-offset-2 w-28 cursor-pointer mx-auto flex items-center  transition-colors duration-300 ease-in-out"
               >
-
                 <li className=" mx-auto">Contact Us</li>
               </Link>
-             
-              
+
               {!user ? (
                 <>
                   {" "}
@@ -136,14 +130,54 @@ function Navbar({signin,signout,user}) {
                 </>
               ) : (
                 <>
-                  <li className=" mx-auto">
-                    <button
-                      onClick={signout}
-                      className="hover:text-black text-white p-2 bg-black  border-black hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out"
-                    >
-                      Logout
-                    </button>
-                  </li>
+                  {user && (
+                    <>
+                      <img
+                        id="clickable"
+                        className="w-12 h-12 cursor-pointer rounded-full mx-2 border-2 border-[#B7D893]"
+                        src={user?.img}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                      />
+                    </>
+                  )}
+
+                  <Tooltip
+                    place="bottom"
+                    classNameArrow="none"
+                    style={{
+                      backgroundColor: "gray",
+                      color: "#222",
+                      borderRadius: "1%",
+                      width: "full",
+                    }}
+                    className=""
+                    anchorSelect="#clickable"
+                    clickable
+                  >
+                    <div className="flex flex-col gap-5 px-4 py-2 box-border  text-white">
+                      <div className="flex gap-3 bg-[#B7D893] p-2 rounded-xl">
+                        <div>
+                          <img
+                            src={user.img}
+                            className="rounded-full w-16 h-16 border-2 border-black "
+                            alt=""
+                          />
+                        </div>
+                        <div>
+                          <p>{user.name}</p>
+                          <p>{user.email}</p>
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={signout}
+                        className="hover:text-black mx-auto text-white p-2 bg-black  hover:border-black border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </Tooltip>
                 </>
               )}
             </ul>

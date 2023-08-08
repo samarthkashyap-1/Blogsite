@@ -1,4 +1,4 @@
-import React,{useState,useEffect}from 'react'
+import React,{useState,useLayoutEffect}from 'react'
 import Navbar from '../component/Navbar'
 import LandingTheme from '../component/LandingTheme';
 import { Fade } from "react-awesome-reveal";
@@ -14,14 +14,25 @@ function Home() {
    const notify = (a) => toast.success(a);
    const notifyerr = (a) => toast.error(a);
   const [curr,setcurr] = useState()
+  
+  useLayoutEffect(() => {
+    if (localStorage.getItem("user")) {
+      
+      setcurr(JSON.parse(localStorage.getItem("user")));
+     
+    }
+  }, []);
 
    const signinwithgoogle = async () => {
   try{
        await signInWithPopup(auth, GoogleProvider);
-     const data = {email : auth.currentUser.email,
-    name:auth.currentUser.displayName}
+     const data = {uid:auth.currentUser.uid,
+      email : auth.currentUser.email,
+    name:auth.currentUser.displayName,
+    img:auth.currentUser.photoURL}
      setcurr(data)
-     notify("Successfully Logged In")
+     localStorage.setItem("user",JSON.stringify(data))
+     notify(`Welcome!! ${data.name} `)
     }catch(err){
       console.log(err)
       notifyerr("There is an error while logging In")
@@ -31,7 +42,7 @@ function Home() {
     try{
       await signOut(auth);
       setcurr()
-      console.log("logout successfull");
+      localStorage.clear()
       notify("Successfully Logged Out");
     }catch (err){
        notifyerr("There is an error while logging Out")
@@ -40,9 +51,12 @@ function Home() {
      }
    };
   return (
+      <>
+      
+
     <div className="">
       
-      <ToastContainer position="top-right" />
+      <ToastContainer position="top-center" />
       <header className="fixed z-40 top-0 w-screen">
         <Navbar signin={signinwithgoogle} signout={signout} user={curr} />
       </header>
@@ -68,6 +82,7 @@ function Home() {
         </div>
       </footer>
     </div>
+      </>
   );
 }
 

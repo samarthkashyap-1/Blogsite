@@ -1,29 +1,38 @@
-import React,{useEffect, useState}from 'react'
-import { ToastContainer, toast } from "react-toastify";
+import React from "react";
+import { toast } from "react-toastify";
+import { auth } from "../config/firebase";
 import "react-toastify/dist/ReactToastify.css";
+import { db } from "../config/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 function ContactUs() {
-    const [contactdata,setcontactdata] = useState()
-    const notify = (a) => toast.success(a);
-    const notifyerr = (a) => toast.error(a);
-   
-    const handlecontact = (e)=>{
-        e.preventDefault()
+  const notifyinfo = (a) => toast.info(a);
+  const notify = (a) => toast.success(a);
+  const notifyerr = (a) => toast.error(a);
+  const handlecontact = async (e) => {
+    e.preventDefault();
+    if (auth.currentUser) {
+      try {
         const data = {
-            Name:e.target.name.value,
-            Email:e.target.email.value,
-            Message:e.target.message.value
-        }
+          Name: e.target.name.value,
+          Email: e.target.email.value,
+          Message: e.target.message.value,
+        };
 
-        setcontactdata(data)
-        data?notify("Message Saved"):notifyerr("Something went wrong")
-        
-        e.target.name.value= ""
-        e.target.email.value= ""
-        e.target.message.value= ""
-    }
- 
-    
+        await addDoc(collection(db, "contactusinfo"), data);
+        e.target.name.value = "";
+        e.target.email.value = "";
+        e.target.message.value = "";
+
+        notify("We'll reach you soon");
+      } catch (err) {
+        notifyerr("Something went wrong!!");
+        console.log(err);
+      }
+    } else notifyinfo("Please Login First!!");
+  };
+
+
 
   return (
     <>
@@ -34,10 +43,9 @@ function ContactUs() {
           </h1>
         </div>
         <div></div>
-        
 
         <div className=" w-1/2 py-3 rounded-2xl px-10 shadow-xl sm:w-full bg-[#B7D893] text-white mx-auto mt-10">
-          <form className="" onSubmit={handlecontact}>
+          <form onSubmit={handlecontact}>
             <div className="flex w-full mx-auto  flex-col gap-6 mt-10 items-center justify-center">
               <div className="w-full ">
                 <label htmlFor="name" className="text-xl font-medium">
@@ -79,7 +87,7 @@ function ContactUs() {
                   required
                 ></textarea>
               </div>
-              <div className="">
+              <div>
                 <input
                   className=" cursor-pointer border-2 text-lg rounded-xl shadow-xl font-medium mt-2 hover:text-black hover:bg-white hover:border-black border-white w-fit mx-auto p-1 px-4"
                   type="submit"
@@ -93,4 +101,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs
+export default ContactUs;
