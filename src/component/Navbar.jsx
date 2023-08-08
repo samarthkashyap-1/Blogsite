@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react';
+import { Link } from 'react-scroll';
 
 
-function Navbar() {
+function Navbar({signin,signout,user}) {
+
+    
 
       addEventListener("scroll",()=>{
         const navbar  = document.getElementById("navbar")
@@ -43,11 +46,11 @@ function Navbar() {
     <div>
       <div
         ref={menuRef}
-        className="flex z-50 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
+        className="flex z-40 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
         id="navbar"
       >
         <div id="navidata" className=" ml-2 sm:ml-5">
-          <h1 className='text-black text-5xl font-bold sm:text-4xl'>Glog</h1>
+          <h1 className="text-black text-5xl font-bold sm:text-4xl">Glog</h1>
         </div>
         <div className=" h-full flex justify-center px-8 items-center">
           <div className="sm:flex hidden">
@@ -77,6 +80,13 @@ function Navbar() {
                 isOpen ? "sm:flex" : "sm:hidden"
               } transition-all duration-1000 ease-in-out sm:shadow`}
             >
+              <a className="sm:mt-5 underline underline-offset-2  mx-auto flex items-center cursor-pointer  transition-colors duration-300 ease-in-out">
+                <li className=" mx-auto text-base ">
+                  <span className="text-lg">WELCOME! </span>
+                  {user?.name ?? "Guest"}
+                </li>
+              </a>
+
               <a
                 onClick={closeMenu}
                 href=""
@@ -91,25 +101,51 @@ function Navbar() {
               >
                 <li className=" mx-auto">Blogs</li>
               </a>
-              <a
-                onClick={closeMenu}
-                href=""
-                className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
+              {user && (
+                <>
+                  <a
+                    onClick={closeMenu}
+                    href=""
+                    className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
+                  >
+                    <li className=" mx-auto">Create</li>
+                  </a>
+                </>
+              )}
+              <Link
+                onClick={closeMenu} 
+                to="contactus"
+                className="hover:underline underline-offset-2 w-28 cursor-pointer mx-auto flex items-center  transition-colors duration-300 ease-in-out"
               >
-                <li className=" mx-auto">Create</li>
-              </a>
-              {/* <a
-              href=""
-              className="hover:text-[#0BB2D7] p-3 hover:bg-black rounded-full w-32 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-              >
-              <li className=" mx-auto">{User}</li>
-            </a> */}
 
-              <li className=" mx-auto">
-                <button className="hover:text-black text-white p-2 bg-black  border-black hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out">
-                  Login
-                </button>
-              </li>
+                <li className=" mx-auto">Contact Us</li>
+              </Link>
+             
+              
+              {!user ? (
+                <>
+                  {" "}
+                  <li className=" mx-auto">
+                    <button
+                      onClick={signin}
+                      className="hover:text-black text-white p-2 bg-black  border-black hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out"
+                    >
+                      Login
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className=" mx-auto">
+                    <button
+                      onClick={signout}
+                      className="hover:text-black text-white p-2 bg-black  border-black hover:border-2 hover:bg-transparent text-center rounded-full w-28 justify-center flex items-center  transition-colors duration-300 ease-in-out"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

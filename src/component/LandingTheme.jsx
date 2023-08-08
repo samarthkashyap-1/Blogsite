@@ -1,4 +1,4 @@
-import React,{useRef}from 'react'
+import React from 'react'
 import Lottie from "lottie-react";
 import logo from "../assets/ani.json";
 import { Link } from 'react-scroll';
@@ -8,7 +8,7 @@ import { Link } from 'react-scroll';
 
 
   
-  function LandingTheme() {
+  function LandingTheme({signin, user}) {
   
     return (
       <>
@@ -19,8 +19,8 @@ import { Link } from 'react-scroll';
             animationData={logo}
             loop={true}
           />
-          <div className="absolute inset-0 mt-36 sm:mt-28  w-3/4 mx-auto">
-            <h1 className=" text-center text-8xl  font-bold sm:text-5xl text-black">
+          <div className="absolute inset-0 mt-36 sm:mt-28  w-3/4 mx-auto backdrop-opacity-80">
+            <h1 className=" text-center text-8xl  font-bold sm:text-5xl  text-black">
               Welcome to Glog
             </h1>
             <h1 className=" text-center text-3xl mt-5  font-bold sm:text-xl text-black">
@@ -37,14 +37,29 @@ import { Link } from 'react-scroll';
             </p>
 
             <div className=" flex justify-center sm:flex-col sm:gap-4 sm:w-fit mx-auto font-bold gap-32 mt-20 sm:mt-10">
-              <Link to="whyglog" smooth={true} duration={20}>
-                <button className="w-32 h-12  px-2 rounded-full border-2 text-white bg-[#B7D893] hover:text-black hover:border-black hover:bg-white  border-white">
-                  Why Glog
+              {!user && (
+                <>
+                  <Link to="whyglog" smooth={true} duration={20}>
+                    <button className="w-32 h-12 shadow-xl  px-2 rounded-full border-2 text-white bg-[#B7D893] hover:text-black hover:border-black hover:bg-white  border-white">
+                      Why Glog
+                    </button>
+                  </Link>
+                  <button
+                    onClick={signin}
+                    className="w-32 h-12 px-2 shadow-xl rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
+                  >
+                    Get Started
+                  </button>{" "}
+                </>
+              )}
+              {user && (
+                <button
+                  onClick={signin}
+                  className="w-32 h-12 px-2 rounded-full shadow-xl border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
+                >
+                  Create Blog
                 </button>
-              </Link>
-              <button className="w-32 h-12 px-2 rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white">
-                Get Started
-              </button>
+              )}
             </div>
           </div>
         </div>

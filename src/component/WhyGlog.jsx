@@ -10,17 +10,14 @@ function WhyGlog() {
   // const whyglog = useRef(null);
   return (
     <>
-      <div
-        className="flex flex-col gap-10 w-3/4 mb-10 mt-20 "
-        
-      >
+      <div className="flex flex-col gap-10 w-3/4 mb-10 mt-20 ">
         <Fade triggerOnce delay={20}>
           <div className="mb-5">
             <h1 className="text-center text-6xl font-bold sm:text-4xl">
               Why Glog?
             </h1>
           </div>
-          <div className="flex p-5 bg-[#B7D893] sm:flex-col rounded-2xl w-2/3 sm:w-fit">
+          <div className="flex p-5 bg-[#B7D893] shadow-xl sm:flex-col rounded-2xl w-2/3 sm:w-fit">
             <div className="w-full h-fit shadow rounded-2xl bg-white">
               <Lottie
                 animationData={cultivate}
@@ -41,7 +38,7 @@ function WhyGlog() {
             </div>
           </div>
 
-          <div className="flex p-5 bg-[#009BA3] sm:flex-col rounded-2xl w-2/3 sm:w-fit sm:ml-0 ml-auto">
+          <div className="flex p-5 bg-[#009BA3] sm:flex-col shadow-xl rounded-2xl w-2/3 sm:w-fit sm:ml-0 ml-auto">
             <div className="w-full h-fit shadow rounded-2xl bg-white">
               <Lottie
                 animationData={expand}
@@ -62,7 +59,7 @@ function WhyGlog() {
             </div>
           </div>
 
-          <div className="flex p-5 bg-[#B7D893] sm:flex-col rounded-2xl w-2/3 sm:w-fit">
+          <div className="flex p-5 bg-[#B7D893] sm:flex-col shadow-xl rounded-2xl w-2/3 sm:w-fit">
             <div className="w-full h-fit shadow rounded-2xl bg-white">
               <Lottie
                 animationData={boost}
