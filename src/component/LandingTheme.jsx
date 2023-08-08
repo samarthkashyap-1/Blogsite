@@ -12,7 +12,7 @@ import { Link } from 'react-scroll';
   
     return (
       <>
-        <div className="relative w-screen h-screen sm:h-[115vh] mt-4 sm:mt-0 ">
+        <div className="relative w-screen h-screen  mt-4 sm:mt-0 ">
           <Lottie
             className="sm:opacity-70 scale-90 sm:scale-100"
             style={{ position: "absolute", width: "100%", height: "100%" }}
