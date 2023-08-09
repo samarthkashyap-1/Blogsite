@@ -1,12 +1,15 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react';
 import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
+
 
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 function Navbar({signin,signout,user}) {
-
+  // const location = useLocation();
     
 
       addEventListener("scroll",()=>{
@@ -83,20 +86,27 @@ function Navbar({signin,signout,user}) {
                 isOpen ? "sm:flex" : "sm:hidden"
               } transition-all duration-1000 ease-in-out sm:shadow`}
             >
-              <a
+              
+
+              <NavLink
+              to="/"
                 onClick={closeMenu}
-                href=""
+                
                 className="sm:mt-5 hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-              >
+                >
                 <li className=" mx-auto">Home</li>
-              </a>
-              <a
+              </NavLink>
+                
+                
+
+              <NavLink to="/blogs"
                 onClick={closeMenu}
-                href=""
+               
                 className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-              >
+                >
                 <li className=" mx-auto">Blogs</li>
-              </a>
+              </NavLink>
+                
               {user && (
                 <>
                   <a
@@ -108,12 +118,15 @@ function Navbar({signin,signout,user}) {
                   </a>
                 </>
               )}
+                
               <Link
+                to="contactus">
+              <NavLink to='/'
                 onClick={closeMenu}
-                to="contactus"
                 className="hover:underline underline-offset-2 w-28 cursor-pointer mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-              >
+                >
                 <li className=" mx-auto">Contact Us</li>
+                </NavLink>
               </Link>
 
               {!user ? (

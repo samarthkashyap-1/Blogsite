@@ -9,11 +9,13 @@ function ContactUs() {
   const notifyinfo = (a) => toast.info(a);
   const notify = (a) => toast.success(a);
   const notifyerr = (a) => toast.error(a);
+
   const handlecontact = async (e) => {
     e.preventDefault();
     if (auth.currentUser) {
       try {
         const data = {
+          
           Name: e.target.name.value,
           Email: e.target.email.value,
           Message: e.target.message.value,
@@ -56,6 +58,7 @@ function ContactUs() {
                   placeholder="Enter Your Name..."
                   type="text"
                   name="Name"
+                  defaultValue={auth.currentUser?auth.currentUser.displayName:""}
                   id="name"
                   required
                 />
@@ -69,6 +72,7 @@ function ContactUs() {
                   type="email"
                   placeholder="Enter Your Email..."
                   name="Email"
+                  defaultValue={auth.currentUser?auth.currentUser.email:""}
                   id="email"
                   required
                 />
