@@ -89,7 +89,7 @@ function App() {
         <Lottie
           animationData={loaderimg}
           
-          className="h-screen w-screen"
+          className="h-screen scale-50 w-screen sm:scale-75"
           />
       </div>
     </> :
