@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 
 import { signInWithPopup, signOut } from "firebase/auth";
 import Blogs from "./component/Blogs";
+import Blogread from "./component/Blogread";
 
 function App() {
   const [loader, setloader] = useState(true);
@@ -70,7 +71,7 @@ function App() {
       
       setTimeout(() => {
         setloader(false);
-      }, 3000);
+      },);
       setloader(true)
     }
   if (!loader){
@@ -107,6 +108,7 @@ function App() {
                 element={<Home signin={signinwithgoogle} user={curr} />}
               />
               <Route path="/blogs" element={<Blogs/>} />
+              <Route path="/blogs/:id" element={<Blogread/>} />
             </Routes>
          
         </>
