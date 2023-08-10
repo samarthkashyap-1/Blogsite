@@ -71,7 +71,7 @@ function App() {
       
       setTimeout(() => {
         setloader(false);
-      },);
+      },2000);
       setloader(true)
     }
   if (!loader){
