@@ -6,3 +6,6 @@
   scroll-behavior: smooth;
   
 }
+/* .active{
+    @apply underline;
+} */

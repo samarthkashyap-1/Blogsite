@@ -46,22 +46,22 @@ import {Link  as Linker} from "react-router-dom"
                   </Link>
                   <button
                     onClick={signin}
-                    className="w-32 h-12 px-2 shadow-xl rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
+                    className="w-32 h-12 px-2 shadow-xl ml-10 rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
                   >
                     Get Started
-                  </button>{" "}
+                  </button>
                 </>
               )}
-            <Linker to='/createblog'>
               {user && (
+            <Linker to='/createblog'>
                 <button
                 
                 className="w-32 h-12 px-2 rounded-full shadow-xl border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
                 >
                   Create Blog
                 </button>
-              )}
               </Linker>
+              )}
             </div>
           </div>
         </div>

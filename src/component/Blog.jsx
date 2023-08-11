@@ -30,7 +30,7 @@ function Blog({content,handledel}) {
           >
             {content.Category}
           </p>
-          {auth.currentUser.uid == content.authid && (
+          {auth.currentUser && auth.currentUser.uid == content.authid && (
             <img onClick={()=>handledel(content.id)} src={del} alt="" />
           )}
         </div>

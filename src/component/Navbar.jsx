@@ -104,7 +104,7 @@ function Navbar({signin,signout,user}) {
                
                 className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
                 >
-                <li className=" mx-auto">Blogs</li>
+                <li className=" mx-auto">Glogs</li>
               </NavLink>
                  
               {user && (

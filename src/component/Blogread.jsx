@@ -68,8 +68,13 @@ function Blogread() {
               >
                 {blogtoread.Category}
               </p>
-              {auth.currentUser.uid == blogtoread.authid && (
-                <img onClick={() => handledel(blogtoread.id)} className="cursor-pointer" src={del} alt="" />
+              {auth.currentUser && auth.currentUser.uid == blogtoread.authid && (
+                <img
+                  onClick={() => handledel(blogtoread.id)}
+                  className="cursor-pointer"
+                  src={del}
+                  alt=""
+                />
               )}
             </div>
             <div className="p-2 flex justify-between flex-col sm:gap-5">
@@ -80,7 +85,7 @@ function Blogread() {
               <div className="flex gap-2  p-2 sm:p-1 items-center my-2">
                 <div className="">
                   <img
-                    src={blogtoread.authimg?blogtoread.authimg:Prof}
+                    src={blogtoread.authimg ? blogtoread.authimg : Prof}
                     className="w-16 h-14 sm:w-12 sm:h-10 border-4 border-[#B7D893] rounded-full "
                     alt=""
                   />
