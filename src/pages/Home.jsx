@@ -1,5 +1,5 @@
 import React,{useState,useLayoutEffect}from 'react'
-import Navbar from '../component/Navbar'
+
 import LandingTheme from '../component/LandingTheme';
 import { Fade } from "react-awesome-reveal";
 import WhyGlog from '../component/WhyGlog';

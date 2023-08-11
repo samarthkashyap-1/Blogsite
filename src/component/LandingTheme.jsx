@@ -2,7 +2,7 @@ import React from 'react'
 import Lottie from "lottie-react";
 import logo from "../assets/ani.json";
 import { Link } from 'react-scroll';
-
+import {Link  as Linker} from "react-router-dom"
 
 
 
@@ -52,14 +52,16 @@ import { Link } from 'react-scroll';
                   </button>{" "}
                 </>
               )}
+            <Linker to='/createblog'>
               {user && (
                 <button
-                  
-                  className="w-32 h-12 px-2 rounded-full shadow-xl border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
+                
+                className="w-32 h-12 px-2 rounded-full shadow-xl border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
                 >
                   Create Blog
                 </button>
               )}
+              </Linker>
             </div>
           </div>
         </div>

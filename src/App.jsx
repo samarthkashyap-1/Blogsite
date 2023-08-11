@@ -19,6 +19,8 @@ import { toast } from "react-toastify";
 import { signInWithPopup, signOut } from "firebase/auth";
 import Blogs from "./component/Blogs";
 import Blogread from "./component/Blogread";
+import CreateBlog from "./pages/CreateBlog";
+import Error404 from "./pages/Error404";
 
 function App() {
   const [loader, setloader] = useState(true);
@@ -109,6 +111,8 @@ function App() {
               />
               <Route path="/blogs" element={<Blogs/>} />
               <Route path="/blogs/:id" element={<Blogread/>} />
+              <Route path="/createblog" element={<CreateBlog user={curr}/>} />
+              <Route path="*" element={<Error404/>} />
             </Routes>
          
         </>

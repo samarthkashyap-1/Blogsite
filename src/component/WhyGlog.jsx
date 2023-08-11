@@ -7,7 +7,6 @@ import { Fade } from "react-awesome-reveal";
 
 
 function WhyGlog() {
-  // const whyglog = useRef(null);
   return (
     <>
       <div className="flex flex-col gap-10 w-3/4 mb-10 mt-20 ">
