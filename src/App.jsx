@@ -71,7 +71,7 @@ function App() {
       setloader(true);
       settingloader();
     } else settingloader();
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
