@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react';
 import { Link } from 'react-scroll';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 
 
 
@@ -54,10 +54,11 @@ function Navbar({signin,signout,user}) {
         ref={menuRef}
         className="flex z-40 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
         id="navbar"
-      >
+      > <NavLink to="/">
         <div id="navidata" className=" ml-2 sm:ml-5">
           <h1 className="text-black text-5xl font-bold sm:text-4xl">Glog</h1>
         </div>
+      </NavLink>
         <div className=" h-full flex justify-center px-8 items-center">
           <div className="sm:flex hidden">
             <button

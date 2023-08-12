@@ -36,7 +36,7 @@ import {Link  as Linker} from "react-router-dom"
               expertise.
             </p>
 
-            <div className=" flex justify-center sm:flex-col sm:gap-4 sm:w-fit mx-auto font-bold gap-32 mt-20 sm:mt-10">
+            <div className="flex justify-center sm:flex-col sm:gap-4 sm:w-fit mx-auto font-bold gap-40 mt-20 sm:mt-10">
               {!user && (
                 <>
                   <Link to="whyglog" smooth={true} duration={20}>
@@ -46,7 +46,7 @@ import {Link  as Linker} from "react-router-dom"
                   </Link>
                   <button
                     onClick={signin}
-                    className="w-32 h-12 px-2 shadow-xl ml-10 rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
+                    className="w-32 h-12 px-2 shadow-xl  rounded-full border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white"
                   >
                     Get Started
                   </button>

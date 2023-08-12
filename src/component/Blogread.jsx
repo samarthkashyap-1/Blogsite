@@ -5,6 +5,7 @@ import { db } from "../config/firebase";
 import { getDoc,doc,deleteDoc } from "firebase/firestore";
 import { auth } from "../config/firebase";
 import Prof from "../assets/test.png";
+import edit from "../assets/edit.svg";
 
 
 function Blogread() {
@@ -68,14 +69,24 @@ function Blogread() {
               >
                 {blogtoread.Category}
               </p>
-              {auth.currentUser && auth.currentUser.uid == blogtoread.authid && (
-                <img
-                  onClick={() => handledel(blogtoread.id)}
-                  className="cursor-pointer"
-                  src={del}
-                  alt=""
-                />
-              )}
+
+              <div className="flex gap-4">
+                {auth.currentUser &&
+                  auth.currentUser.uid == blogtoread.authid && (
+                    <img
+                      onClick={() => handledel(blogtoread.id)}
+                      className="cursor-pointer"
+                      src={del}
+                      alt=""
+                    />
+                  )}
+                <Link to={`/blogs/updateblog/${blogtoread.id}`}>
+                  {auth.currentUser &&
+                    auth.currentUser.uid == blogtoread.authid && (
+                      <img className="scale-75" src={edit} alt="" />
+                    )}
+                </Link>
+              </div>
             </div>
             <div className="p-2 flex justify-between flex-col sm:gap-5">
               <h1 className="text-5xl sm:text-3xl text leading-tight  font-semibold">
@@ -86,18 +97,27 @@ function Blogread() {
                 <div className="">
                   <img
                     src={blogtoread.authimg ? blogtoread.authimg : Prof}
-                    className="w-16 h-14 sm:w-12 sm:h-10 border-4 border-[#B7D893] rounded-full "
+                    className="w-16 h-14 sm:w-12 sm:h-10 border-2 border-[#B7D893] rounded-full "
                     alt=""
                   />
                 </div>
-                <div className="flex justify-between mx-2 sm:flex-col sm:mx-0 w-full">
-                  <p className=" text-lg font-medium sm:text-sm">
+                <div className="flex justify-between items-center mx-2 gap-2 sm:flex-col sm:mx-0 w-full">
+                  <p className=" text-lg font-medium sm:text-base">
                     {blogtoread.author}
                   </p>
-                  <p className="text-medium font-medium sm:text-xs">
-                    Published on:{" "}
-                    {blogtoread.Publish.toDate().toLocaleDateString()}
-                  </p>
+                  <div className="flex flex-col">
+                    {blogtoread.UpdatedOn && (
+                      <p className="text-medium font-medium sm:text-xs sm:font-normal">
+                        Last Updated on:{" "}
+                        {blogtoread.UpdatedOn.toDate().toLocaleDateString()}
+                      </p>
+                    )}
+
+                    <p className="text-medium font-medium sm:text-xs sm:font-normal">
+                      Published on:{" "}
+                      {blogtoread.Publish.toDate().toLocaleDateString()}
+                    </p>
+                  </div>
                 </div>
               </div>
               <hr className="border-[#009BA3]" />

@@ -32,13 +32,7 @@ function Home({signin, user}) {
         </div>
       </Fade>
 
-      <footer className="h-20 bg-black mt-20">
-        <div className="">
-          <h1 className="text-white text-3xl sm:text-xl text-center">
-            Developed by Samarth Kashayp
-          </h1>
-        </div>
-      </footer>
+     
     </div>
       </>
   );
