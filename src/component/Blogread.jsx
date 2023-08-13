@@ -27,6 +27,8 @@ function Blogread() {
       setload(false);
       
     }catch(err){
+      setload(false);
+      Navigate("/blogs")
       console.log(err)
     }
   }
@@ -43,9 +45,11 @@ function Blogread() {
        console.log("delete")
       
       setload(false);
-       Navigate("/blogs")
-
-     } catch (err) {
+      Navigate("/blogs")
+      
+    } catch (err) {
+      setload(false);
+      Navigate("/blogs")
        console.log(err);
      }
    };

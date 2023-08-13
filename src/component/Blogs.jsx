@@ -28,6 +28,7 @@ function Blogs() {
       setblogdata(filtereddata);
       setload(false)
     } catch (err) {
+      setload(false)
       console.log(err);
     }
   };
@@ -45,6 +46,7 @@ function Blogs() {
       notify("Glog Deleted");
       setload(false);
     } catch (err) {
+      setload(false);
       notifyerr("Something went Wrong!!");
     }
   };
