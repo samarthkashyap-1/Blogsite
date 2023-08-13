@@ -6,6 +6,8 @@ import { getDoc,doc,deleteDoc } from "firebase/firestore";
 import { auth } from "../config/firebase";
 import Prof from "../assets/test.png";
 import edit from "../assets/edit.svg";
+import loader from "../assets/loader.json";
+import Lottie from "lottie-react";
 
 
 function Blogread() {
@@ -13,13 +15,16 @@ function Blogread() {
   const Navigate = useNavigate()
   const Blogref = doc(db,"Glogs",id)
   const [blogtoread,setblogtoread]=useState()
+  const [load,setload]=useState(false)
 
   
   const gettingblog = async ()=>{
+    setload(true)
     try{
       const data = await getDoc(Blogref)
       const filtereddata = {...data.data(),id: data.id}
       setblogtoread(filtereddata)
+      setload(false);
       
     }catch(err){
       console.log(err)
@@ -30,15 +35,15 @@ function Blogread() {
   },[])
   
    const handledel = async (id) => {
-    
+    setload(true);
      
      try {
        const Glogtodel = doc(db, "Glogs", id);
        await deleteDoc(Glogtodel);
        console.log("delete")
       
+      setload(false);
        Navigate("/blogs")
-      
 
      } catch (err) {
        console.log(err);
@@ -58,7 +63,7 @@ function Blogread() {
 
   return (
     <>
-      {blogtoread && (
+      {blogtoread && !load && (
         <>
           <div className="w-3/4 mt-28  p-2 mx-auto">
             <div className="p-2 flex justify-between">
@@ -134,6 +139,13 @@ function Blogread() {
                 Back To Blog
               </button>
             </Link>
+          </div>
+        </>
+      )}
+      {load && (
+        <>
+          <div className="h-screen mt-80">
+            <Lottie animationData={loader} className="h-14 w-14 m-auto" />
           </div>
         </>
       )}

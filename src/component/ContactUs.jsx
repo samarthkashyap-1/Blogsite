@@ -38,7 +38,7 @@ function ContactUs() {
 
   return (
     <>
-      <div className="w-3/4 mx-auto mt-20">
+      <div className="w-3/4 mx-auto my-20 ">
         <div>
           <h1 className="text-6xl font-bold sm:text-4xl text-center">
             Contact us

@@ -31,6 +31,7 @@ function App() {
   }, []);
 
   const signinwithgoogle = async () => {
+    setloader(true)
     try {
       await signInWithPopup(auth, GoogleProvider);
       const data = {
@@ -41,6 +42,7 @@ function App() {
       };
       setcurr(data);
       localStorage.setItem("user", JSON.stringify(data));
+      setloader(false)
       notify(`Welcome!! ${data.name} `);
     } catch (err) {
       console.log(err);
@@ -48,11 +50,12 @@ function App() {
     }
   };
   const signout = async () => {
+    setloader(true)
     try {
       await signOut(auth);
       setcurr();
       localStorage.clear();
-
+      setloader(false)
       notify("Successfully Logged Out");
     } catch (err) {
       notifyerr("There is an error while logging Out");
@@ -60,13 +63,13 @@ function App() {
     }
   };
 
+  const settingloader = () => {
+    setTimeout(() => {
+      setloader(false);
+    }, 1500);
+    setloader(true);
+  };
   useEffect(() => {
-    const settingloader = () => {
-      setTimeout(() => {
-        setloader(false);
-      }, 1500);
-      setloader(true);
-    };
     if (!loader) {
       setloader(true);
       settingloader();
@@ -117,7 +120,7 @@ function App() {
             />
             <Route path="*" element={<Error404 />} />
           </Routes>
-          <footer className="h-full bg-black text-white mt-20 flex flex-col gap-2 justify-center">
+          <footer className="mt-auto bg-black text-white  flex flex-col gap-2 justify-center">
             <div>
               <h1 className="text-gray-400 text-xl mt-2 font-semibold sm:text-xl text-center">
                 Developed by Samarth Kashayp
