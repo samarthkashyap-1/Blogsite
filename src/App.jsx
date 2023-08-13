@@ -45,6 +45,7 @@ function App() {
       setloader(false)
       notify(`Welcome!! ${data.name} `);
     } catch (err) {
+      setloader(false)
       console.log(err);
       notifyerr("There is an error while logging In");
     }
@@ -58,6 +59,7 @@ function App() {
       setloader(false)
       notify("Successfully Logged Out");
     } catch (err) {
+      setloader(false)
       notifyerr("There is an error while logging Out");
       console.log(err);
     }
