@@ -1,64 +1,58 @@
-import React from 'react'
-import { useState,useEffect,useRef } from 'react';
-import { Link } from 'react-scroll';
-import { NavLink} from 'react-router-dom';
-
-
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
-function Navbar({signin,signout,user}) {
-  
-    
+function Navbar({ signin, signout, user }) {
+  addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY >= 50) {
+      navbar.classList.add("shadow-md", "backdrop-blur-lg");
+    }
+    if (window.scrollY <= 0) {
+      navbar.classList.remove("shadow-md", "backdrop-blur-lg");
+    }
+  });
 
-      addEventListener("scroll",()=>{
-        const navbar  = document.getElementById("navbar")
-        if(window.scrollY >= 50){
-         navbar.classList.add("shadow-md","backdrop-blur-lg");
-        }
-        if(window.scrollY <= 0){
-          navbar.classList.remove("shadow-md","backdrop-blur-lg");
-        }
-      })
-    
-      const menuRef = useRef(null);
-      const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-      const toggleMenu = () => {
-        setIsOpen(!isOpen);
-      };
-       const closeMenu = () => {
-         setIsOpen(false);
-       };
-         useEffect(() => {
-           const handleOutsideClick = (event) => {
-             if (menuRef.current && !menuRef.current.contains(event.target)) {
-               closeMenu();
-             }
-           };
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
 
-           document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
-           return () => {
-             document.removeEventListener("mousedown", handleOutsideClick);
-           };
-         }, []);
-         
-      
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
-   
   return (
     <div>
       <div
         ref={menuRef}
         className="flex z-40 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
         id="navbar"
-      > <NavLink to="/">
-        <div id="navidata" className=" ml-2 sm:ml-5">
-          <h1 className="text-black text-5xl font-bold sm:text-4xl">Glog</h1>
-        </div>
-      </NavLink>
+      >
+        {" "}
+        <NavLink to="/">
+          <div id="navidata" className=" ml-2 sm:ml-5">
+            <h1 className="text-black text-5xl font-bold sm:text-4xl">Glog</h1>
+          </div>
+        </NavLink>
         <div className=" h-full flex justify-center px-8 items-center">
           <div className="sm:flex hidden">
             <button
@@ -87,30 +81,26 @@ function Navbar({signin,signout,user}) {
                 isOpen ? "sm:flex" : "sm:hidden"
               } transition-all duration-1000 ease-in-out sm:shadow`}
             >
-              
-
               <NavLink
-              to="/"
+                to="/"
                 onClick={closeMenu}
-                
                 className="sm:mt-5 hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-                >
+              >
                 <li className=" mx-auto">Home</li>
               </NavLink>
-                
-                
 
-              <NavLink to="/blogs"
+              <NavLink
+                to="/blogs"
                 onClick={closeMenu}
-               
                 className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
-                >
+              >
                 <li className=" mx-auto">Glogs</li>
               </NavLink>
-                 
+
               {user && (
                 <>
-                  <NavLink to="/createblog"
+                  <NavLink
+                    to="/createblog"
                     onClick={closeMenu}
                     href=""
                     className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
@@ -119,14 +109,14 @@ function Navbar({signin,signout,user}) {
                   </NavLink>
                 </>
               )}
-                
-              <Link
-                to="contactus">
-              <NavLink to='/'
-                onClick={closeMenu}
-                className="hover:underline underline-offset-2 w-28 cursor-pointer mx-auto flex items-center  transition-colors duration-300 ease-in-out"
+
+              <Link to="contactus">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu}
+                  className="hover:underline underline-offset-2 w-28 cursor-pointer mx-auto flex items-center  transition-colors duration-300 ease-in-out"
                 >
-                <li className=" mx-auto">Contact Us</li>
+                  <li className=" mx-auto">Contact Us</li>
                 </NavLink>
               </Link>
 
@@ -202,4 +192,4 @@ function Navbar({signin,signout,user}) {
   );
 }
 
-export default Navbar
+export default Navbar;

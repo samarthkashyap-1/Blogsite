@@ -1,25 +1,21 @@
-import React from 'react'
-import del from "../assets/delete.svg"
-import edit from "../assets/edit.svg"
-import { Link } from 'react-router-dom'
-import {auth } from "../config/firebase"
-import Prof from "../assets/test.png"
-function Blog({content,handledel}) {
-    let date=  content.Publish.toDate();
-    date = date.toLocaleDateString();
-    
-    console.log(content.UpdateOn)
-    const color = (content)=>{
-        if(content.Category === "Technology") return "bg-red-500"
-        else if(content.Category === "Travel") return "bg-gray-500"
-        else if(content.Category === "Science") return "bg-cyan-500"
-        else if(content.Category === "Art") return "bg-orange-500"
-        
-        else if(content.Category === "Others") return "bg-black";
-    }
+import React from "react";
+import del from "../assets/delete.svg";
+import edit from "../assets/edit.svg";
+import { Link } from "react-router-dom";
+import { auth } from "../config/firebase";
+import Prof from "../assets/test.png";
+function Blog({ content, handledel }) {
+  let date = content.Publish.toDate();
+  date = date.toLocaleDateString();
 
-
-
+  console.log(content.UpdateOn);
+  const color = (content) => {
+    if (content.Category === "Technology") return "bg-red-500";
+    else if (content.Category === "Travel") return "bg-gray-500";
+    else if (content.Category === "Science") return "bg-cyan-500";
+    else if (content.Category === "Art") return "bg-orange-500";
+    else if (content.Category === "Others") return "bg-black";
+  };
 
   return (
     <div className="flex flex-col border-2 mt-5 p-4 hover:shadow-2xl transition-shadow duration-150 cursor-pointer rounded-xl ease-in">
@@ -78,4 +74,4 @@ function Blog({content,handledel}) {
   );
 }
 
-export default Blog
+export default Blog;

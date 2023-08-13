@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 import Lottie from "lottie-react";
 import cultivate from "../assets/cultivate.json";
 import expand from "../assets/expand.json";
 import boost from "../assets/boost.json";
 import { Fade } from "react-awesome-reveal";
-
 
 function WhyGlog() {
   return (
@@ -84,4 +83,4 @@ function WhyGlog() {
   );
 }
 
-export default WhyGlog
+export default WhyGlog;
