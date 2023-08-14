@@ -28,7 +28,7 @@ function Blogread() {
       
     }catch(err){
       setload(false);
-      Navigate("/blogs")
+      Navigate("/glogs")
       console.log(err)
     }
   }
@@ -45,11 +45,11 @@ function Blogread() {
        console.log("delete")
       
       setload(false);
-      Navigate("/blogs")
+      Navigate("/glogs")
       
     } catch (err) {
       setload(false);
-      Navigate("/blogs")
+      Navigate("/glogs")
        console.log(err);
      }
    };
@@ -89,7 +89,7 @@ function Blogread() {
                       alt=""
                     />
                   )}
-                <Link to={`/blogs/updateblog/${blogtoread.id}`}>
+                <Link to={`/glogs/updateglog/${blogtoread.id}`}>
                   {auth.currentUser &&
                     auth.currentUser.uid == blogtoread.authid && (
                       <img className="scale-75" src={edit} alt="" />
@@ -138,7 +138,7 @@ function Blogread() {
             </div>
           </div>
           <div className="w-3/4 mx-auto flex justify-center">
-            <Link to="/blogs">
+            <Link to="/glogs">
               <button className="px-4 py-2 border-2 my-10 rounded-xl">
                 Back To Blog
               </button>

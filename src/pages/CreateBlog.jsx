@@ -38,7 +38,7 @@ function CreateBlog({ user }) {
       e.target.title.value = "";
       e.target.content.value = "";
       notify("Glog Created");
-      navigate("/blogs");
+      navigate("/glogs");
     } catch (err) {
       console.log(err);
       notifyerr("Something went wrong");

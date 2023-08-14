@@ -92,7 +92,7 @@ function App() {
       ) : (
         <>
           {curr && (
-            <Link to="/createblog">
+            <Link to="/createglog">
               <img
                 className=" rounded-full border-2 cursor-pointer fixed bottom-10 z-50 shadow-lg sm:right-5 right-16 sm:bottom-5 sm:scale-100 scale-125"
                 src={add}
@@ -113,11 +113,11 @@ function App() {
               path="/ContactUs"
               element={<Home signin={signinwithgoogle} user={curr} />}
             />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blogs/:id" element={<Blogread />} />
-            <Route path="/createblog" element={<CreateBlog user={curr} />} />
+            <Route path="/glogs" element={<Blogs />} />
+            <Route path="/glogs/:id" element={<Blogread />} />
+            <Route path="/createglog" element={<CreateBlog user={curr} />} />
             <Route
-              path="/blogs/updateblog/:id"
+              path="/glogs/updateglog/:id"
               element={<UpdateBlog user={curr} />}
             />
             <Route path="*" element={<Error404 />} />

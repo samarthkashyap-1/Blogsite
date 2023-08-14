@@ -47,7 +47,7 @@ function LandingTheme({ signin, user }) {
               </>
             )}
             {user && (
-              <Linker to="/createblog">
+              <Linker to="/createglog">
                 <button className="w-32 h-12 px-2 rounded-full shadow-xl border-2 hover:text-white hover:bg-[#B7D893] text-black border-black bg-white hover:border-white">
                   Create Blog
                 </button>

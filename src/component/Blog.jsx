@@ -32,14 +32,14 @@ function Blog({ content, handledel }) {
           {auth.currentUser && auth.currentUser.uid == content.authid && (
             <img onClick={() => handledel(content.id)} src={del} alt="" />
           )}
-          <Link to={`/blogs/updateblog/${content.id}`}>
+          <Link to={`/glogs/updateglog/${content.id}`}>
             {auth.currentUser && auth.currentUser.uid == content.authid && (
               <img className="scale-75" src={edit} alt="" />
             )}
           </Link>
         </div>
       </div>
-      <Link to={`/blogs/${content.id}`}>
+      <Link to={`/glogs/${content.id}`}>
         <div className="p-1 mb-1">
           <h1 className="text-xl font-medium">{content.Title}</h1>
         </div>

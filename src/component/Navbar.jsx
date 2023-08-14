@@ -90,7 +90,7 @@ function Navbar({ signin, signout, user }) {
               </NavLink>
 
               <NavLink
-                to="/blogs"
+                to="/glogs"
                 onClick={closeMenu}
                 className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
               >
@@ -100,7 +100,7 @@ function Navbar({ signin, signout, user }) {
               {user && (
                 <>
                   <NavLink
-                    to="/createblog"
+                    to="/createglog"
                     onClick={closeMenu}
                     href=""
                     className="hover:underline underline-offset-2 w-24 mx-auto flex items-center  transition-colors duration-300 ease-in-out"
