@@ -88,7 +88,7 @@ function CreateBlog({ user }) {
               <div className="w-full">
                 <label htmlFor="msg" className="text-xl font-medium"></label>
                 <textarea
-                  className="p-3 text-lg sm:text-base font-medium shadow-xl  rounded-xl text-black mt-2 w-full "
+                  className="p-3 text-lg sm:text-sm font-medium shadow-xl  rounded-xl text-black mt-2 w-full "
                   name="content"
                   placeholder="Description..."
                   id="msg"
