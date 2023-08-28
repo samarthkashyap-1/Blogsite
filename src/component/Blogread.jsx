@@ -131,10 +131,11 @@ function Blogread() {
               </div>
               <hr className="border-[#009BA3]" />
             </div>
-            <div className="w-2/3  mt-10 mx-auto my-10 sm:my-5 sm:w-full sm:p-1">
-              <p className="text-lg text-justify leading-8 sm:text-base sm:leading-normal">
-                {blogtoread.content}
-              </p>
+            <div className="w-2/3  mt-10 mx-auto my-10 sm:my-5 sm:w-full flex  sm:p-1">
+            <p className="text-lg  whitespace-pre-line	 break-words text-justify sm:text-base sm:leading-normal">
+              {blogtoread.content}
+            </p>
+
             </div>
           </div>
           <div className="w-3/4 mx-auto flex justify-center">
