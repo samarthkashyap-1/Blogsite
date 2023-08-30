@@ -5,15 +5,16 @@ import { NavLink } from "react-router-dom";
 
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import cut from "../assets/cut.png";
 
 function Navbar({ signin, signout, user }) {
   addEventListener("scroll", () => {
     const navbar = document.getElementById("navbar");
     if (window.scrollY >= 50) {
-      navbar.classList.add("shadow-md", "backdrop-blur-lg");
+      navbar.classList.add("backdrop-blur-lg", "shadow-lg");
     }
     if (window.scrollY <= 0) {
-      navbar.classList.remove("shadow-md", "backdrop-blur-lg");
+      navbar.classList.remove("backdrop-blur-lg", "shadow-lg");
     }
   });
 
@@ -44,7 +45,7 @@ function Navbar({ signin, signout, user }) {
     <div>
       <div
         ref={menuRef}
-        className="flex z-40 bg-transparent justify-between transition-all duration-300 ease-in items-center h-20 "
+        className="flex z-40 bg-transparent justify-between transition-shadow duration-300 ease-in-out  items-center h-20 "
         id="navbar"
       >
         {" "}
@@ -75,12 +76,20 @@ function Navbar({ signin, signout, user }) {
               </svg>
             </button>
           </div>
-          <div className=" ">
+          <div className="">
             <ul
               className={`flex text-lg text-black h-full sm:top-0 sm:absolute sm:right-[0%] sm:backdrop-blur-sm sm:h-fit sm:w-[100%] items-center gap-2  sm:gap-6 sm:flex-col sm:bg-white sm:pb-2 box-border font-medium ${
-                isOpen ? "sm:flex" : "sm:hidden"
-              } transition-all duration-1000 ease-in-out sm:shadow`}
+                isOpen ? "sm:left-0" : "sm:left-[100%]"
+              } sm:transition-all sm:duration-1000 sm:ease-in-out sm:shadow`}
             >
+              <div className="sm:block hidden">
+                <img
+                  src={cut}
+                  alt=""
+                  onClick={closeMenu}
+                  className=" absolute right-5 scale-90 top-5"
+                />
+              </div>
               <NavLink
                 to="/"
                 onClick={closeMenu}
