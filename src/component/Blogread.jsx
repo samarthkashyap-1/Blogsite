@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { useParams , Link,useNavigate} from "react-router-dom";
 import del from "../assets/delete.svg";
 import { db } from "../config/firebase";
@@ -11,6 +12,7 @@ import Lottie from "lottie-react";
 
 
 function Blogread() {
+  
   const { id } = useParams();
   const Navigate = useNavigate()
   const Blogref = doc(db,"Glogs",id)
@@ -78,12 +80,13 @@ function Blogread() {
               >
                 {blogtoread.Category}
               </p>
+             
 
               <div className="flex gap-4">
                 {auth.currentUser &&
                   auth.currentUser.uid == blogtoread.authid && (
                     <img
-                      onClick={() => handledel(blogtoread.id)}
+                      onClick={() => (window.confirm('Are you sure you wish to delete this item?'))? handledel(blogtoread.id):pass}
                       className="cursor-pointer"
                       src={del}
                       alt=""
@@ -121,7 +124,6 @@ function Blogread() {
                         {blogtoread.UpdatedOn.toDate().toLocaleDateString()}
                       </p>
                     )}
-
                     <p className="text-medium font-medium sm:text-xs sm:font-normal">
                       Published on:{" "}
                       {blogtoread.Publish.toDate().toLocaleDateString()}
@@ -132,10 +134,9 @@ function Blogread() {
               <hr className="border-[#009BA3]" />
             </div>
             <div className="w-2/3  mt-10 mx-auto my-10 sm:my-5 sm:w-full flex  sm:p-1">
-            <p className="text-lg  whitespace-pre-line	 break-words text-justify sm:text-base sm:leading-normal">
-              {blogtoread.content}
-            </p>
-
+              <p className="text-lg  whitespace-pre-line	 break-words text-justify sm:text-base sm:leading-normal">
+                {blogtoread.content}
+              </p>
             </div>
           </div>
           <div className="w-3/4 mx-auto flex justify-center">

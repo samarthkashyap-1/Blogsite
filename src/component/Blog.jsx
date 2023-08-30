@@ -30,7 +30,15 @@ function Blog({ content, handledel }) {
 
         <div className="flex h-5 justify-center gap-2 items-center">
           {auth.currentUser && auth.currentUser.uid == content.authid && (
-            <img onClick={() => handledel(content.id)} src={del} alt="" />
+            <img
+              onClick={() =>
+                window.confirm("Are you sure you wish to delete this item?")
+                  ? handledel(blogtoread.id)
+                  : pass
+              }
+              src={del}
+              alt=""
+            />
           )}
           <Link to={`/glogs/updateglog/${content.id}`}>
             {auth.currentUser && auth.currentUser.uid == content.authid && (
